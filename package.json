@@ -1,0 +1,26 @@
+{
+  "name": "employee_tracker_sheridan",
+  "version": "1.0.0",
+  "description": "Content Management System that allows a user/employer to manage or track their employees through node, inquirer, and MySQL within a database.",
+  "main": "index.js",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^7.3.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdsheridan02/employee_tracker_sheridan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdsheridan02/employee_tracker_sheridan/issues"
+  },
+  "homepage": "https://github.com/jdsheridan02/employee_tracker_sheridan#readme"
+}
