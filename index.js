@@ -295,6 +295,7 @@ function updateMan() {
     let querySpec = "SELECT employee.id, employee.first_name, employee.last_name, role.title, role.title AS title FROM employee INNER JOIN id ON employee.id = role.id";
 
     connection.query("SELCT * FROM employee", function (err, data) {
+        if (err) throw err;
         console.log(data);
         for (let i = 0; i < data.length; i++) {
             let employeeList = data[i].id + " " + data[i].first_name + " " + data[i].last_name;
@@ -302,6 +303,7 @@ function updateMan() {
             employeeArray.push(employeeList);
         }
         connection.query(querySpec, function (err, data) {
+            if (err) throw err;
             for (let i = 0; i < data.length; i++) {
                 let managerList = { name: data[i].title, value: data[i].id };
 
