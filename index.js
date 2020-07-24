@@ -45,7 +45,7 @@ function employeeTracker() {
             ]
         })
         .then(function (answer) {
-            console.log(answer);
+            // console.log(answer);
             switch (answer.action) {
                 case "View all employees":
                     employeeSearch();
@@ -109,7 +109,7 @@ function employeeSearch() {
     const query = "SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN department ON role.department_id = department.id";
     connection.query(query, function (err, data) {
         if (err) throw err;
-        console.log("//pulling all Employee information");
+        // console.log("//pulling all Employee information");
         console.table(data);
         employeeTracker();
     });
@@ -118,8 +118,8 @@ function employeeSearch() {
 function roleSearch() {
     connection.query("SELECT * FROM role", function (err, data) {
         if (err) throw err;
-        console.log("//search for all company roles");
-        console.log(data);
+        // console.log("//search for all company roles");
+        // console.log(data);
         console.table(data);
         employeeTracker();
     });
@@ -128,8 +128,8 @@ function roleSearch() {
 function deptSearch() {
     connection.query("SELECT * FROM department", function (err, data) {
         if (err) throw err;
-        console.log("//search for all departments");
-        console.log(data);
+        // console.log("//search for all departments");
+        // console.log(data);
         console.table(data);
         employeeTracker();
     });
@@ -169,7 +169,7 @@ function employeeAdd() {
                 if (err) {
                     throw err;
                 }
-                console.log(data);
+                // console.log(data);
                 console.table(data);
             });
         employeeTracker();
@@ -193,7 +193,7 @@ function departAdd() {
                 }
             }
         ),
-            console.log(data);
+            // console.log(data);
         console.table(data);
         employeeTracker();
     });
@@ -227,7 +227,7 @@ function roleAdd() {
                 if (err) {
                     throw err;
                 }
-                console.log(data);
+                // console.log(data);
                 console.table(data);
             }
         );
@@ -242,7 +242,7 @@ function updateRole() {
     let roleUp = [];
     let roleArray = [];
     connection.query("SELECT * FROM employee", function (err, data) {
-        console.log(data);
+        // console.log(data);
         if (err) throw err;
 
         for (let i = 0; i < data.length; i++) {
@@ -251,7 +251,7 @@ function updateRole() {
             roleUp.push(roleTide);
         }
         connection.query("SELECT * FROM role", function (err, data) {
-            console.log(data);
+            // console.log(data);
             if (err) throw err;
 
             for (let i = 0; i < data.length; i++) {
@@ -274,12 +274,12 @@ function updateRole() {
                     name: "newrole"
                 }
             ]).then(function (data) {
-                console.log("Updating information", data);
-                console.log(data.roleEm);
-                console.log(data.newrole);
+                // console.log("Updating information", data);
+                // console.log(data.roleEm);
+                // console.log(data.newrole);
                 connection.query("UPDATE employee SET role_id = ? WHERE id = ?", [data.newrole, data.roleEm], function (err, data) {
                     if (err) throw err;
-                    console.log(data);
+                    // console.log(data);
 
                     employeeTracker();
                 })
@@ -296,7 +296,7 @@ function updateMan() {
 
     connection.query("SELCT * FROM employee", function (err, data) {
         if (err) throw err;
-        console.log(data);
+        // console.log(data);
         for (let i = 0; i < data.length; i++) {
             let employeeList = data[i].id + " " + data[i].first_name + " " + data[i].last_name;
 
@@ -323,7 +323,7 @@ function updateMan() {
                     name: "newMan"
                 }
             ]).then(function (data) {
-                console.log("Updating information", data);
+                // console.log("Updating information", data);
 
                 connection.query("UPDATE employee SET manager_id = ? WHERE id = ?", [data.newMan, data.currentEm], function (err, res) {
                     employeeTracker();
